@@ -13,6 +13,7 @@ def require_apikey(view_function):
             abort(400, f'{API_KEY_HEADER_NAME} was not found.')
 
         expected_hashed_api_key = os.environ.get('HASHED_API_KEY')
+        print("expected_hashed_api_key")
         received_api_key = request.headers.get(API_KEY_HEADER_NAME)
 
         received_hashed_api_key = hash_value(received_api_key)
